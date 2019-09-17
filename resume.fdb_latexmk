@@ -1,0 +1,21 @@
+# Fdb version 3
+["latex"] 1568745203 "resume.tex" "resume.dvi" "resume" 1568745203
+  "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsl10.tfm" 1136768653 1508 efecb4a315fe0975509670a272d75ef5 ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/base/article.cls" 1544567569 19933 3097d1b31d3c45dc957096f554529032 ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd" 1523050425 2472 aa08940f0a4dc6c24ae9f943b04ae0b9 ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/base/size10.clo" 1544567569 8294 6d6e23d5169c0d89d173f6c7e08a005a ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/graphics/keyval.sty" 1523134385 2591 6404d0c7d28505fb38ce0d86c2e28ae7 ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/psnfss/helvet.sty" 1156702453 1500 3c2647c8649928795ededd42a6e85f85 ""
+  "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1557092114 35484 cb1661360667bf4db662a8895053b554 ""
+  "/usr/local/texlive/2019/texmf-var/web2c/pdftex/latex.fmt" 1557342093 4259573 37b62468c0ed6359e0d5d414acc98405 ""
+  "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
+  "res.cls" 1566023711 26968 65f5446f3f70b7da4a77e45f719aa6b6 ""
+  "resume.aux" 1568745203 8 a94a2480d3289e625eea47cd1b285758 ""
+  "resume.tex" 1568745197 7484 71d6cc7bc8ccb37897f3805eb00c806e ""
+  (generated)
+  "resume.dvi"
+  "resume.log"

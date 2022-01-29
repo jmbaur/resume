@@ -1,192 +1,181 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Medium Length Graduate Curriculum Vitae
-% LaTeX Template
-% Version 1.2 (3/28/15)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Rensselaer Polytechnic Institute
-% (http://www.rpi.edu/dept/arc/training/latex/resumes/)
-%
-% Modified by:
-% Daniel L Marks <xleafr@gmail.com> 3/28/2015
-%
-% Important note:
-% This template requires the res.cls file to be in the same directory as the
-% .tex file. The res.cls file provides the resume style used for structuring the
-% document.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------
+% Resume Template
+% Author : Anubhav Singh
+% Github : https://github.com/xprilion
+% License : MIT
+%------------------------
 
-%-------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%-------------------------------------------------------------------------------
+\documentclass[a4paper,20pt]{article}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% You can have multiple style options the legal options ones are:
-%
-%   centered:	the name and address are centered at the top of the page
-%				(default)
-%
-%   line:		the name is the left with a horizontal line then the address to
-%				the right
-%
-%   overlapped:	the section titles overlap the body text (default)
-%
-%   margin:		the section titles are to the left of the body text
-%
-%   11pt:		use 11 point fonts instead of 10 point fonts
-%
-%   12pt:		use 12 point fonts instead of 10 point fonts
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
 
-\documentclass[margin]{resume}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
-% Default font is the helvetica postscript font
-\usepackage{helvet}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.45in}
+\addtolength{\textheight}{1in}
 
-% Increase text height
-\textheight=700pt
+\urlstyle{rm}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeItemWithoutTitle}[1]{
+  \item\small{
+    {\vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-3pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-----------------------------
+%%%%%%  CV STARTS HERE  %%%%%%
 
 \begin{document}
 
-%-------------------------------------------------------------------------------
-%	NAME AND ADDRESS SECTION
-%-------------------------------------------------------------------------------
-\name{Jared Baur}
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{{\LARGE Jared Baur}} & Email: \href{mailto:jaredbaur@fastmail.com}{jaredbaur@fastmail.com}\\
+  \href{https://jmbaur.com}{Portfolio: jmbaur.com}\\% & Mobile:~~~+91-700-3944-046 \\
+  \href{https://github.com/jmbaur}{Github: ~~github.com/jmbaur} \\
+\end{tabular*}
 
-% Note that addresses can be used for other contact information:
-% -phone numbers
-% -email addresses
-% -linked-in profile
+%-----------EDUCATION-----------------
+\section{~~Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Occidental College}{Los Angeles, California}
+      {Bachelor of Arts - Physics \& Mathematics}{2015 - 2019}
+      {\scriptsize \textit{ \footnotesize{\newline{}\textbf{Courses:} Differential Equations, Statistical Mechanics}}}
+    \resumeSubHeadingListEnd
 
-\address{Software Engineer\\https://jmbaur.com}
-\address{jaredbaur@fastmail.com}
+\vspace{-5pt}
+\section{Skills Summary}
+	\resumeSubHeadingListStart
+	\resumeSubItem{Languages}{~~~~~~Go, Python, Zig, JavaScript, SQL, Bash, Nix}
+	% \resumeSubItem{Frameworks}{~~~~Scikit, NLTK, SpaCy, TensorFlow, Keras, Django, Flask, NodeJS, LAMP}
+	\resumeSubItem{Tools}{~~~~~~~~~~~~~~Docker/Podman/Nspawn, Nix, Git, PostgreSQL, MySQL, SQLite, SSH}
+	\resumeSubItem{Platforms}{~~~~~~~Linux, NixOS, FreeBSD, Web, AWS}
+	\resumeSubItem{Soft Skills}{~~~~~~~Leadership, Event Management, Writing, Public Speaking, Time Management}
 
-% Uncomment to add a third address
-%\address{Address 3 line 1\\Address 3 line 2\\Address 3 line 3}
-%-------------------------------------------------------------------------------
+\resumeSubHeadingListEnd
+\vspace{-5pt}
+\section{Experience}
+  % \resumeSubHeadingListStart
+%     \resumeSubheading{Google Summer of Code - Submitty}{Remote}
+%     {Student Developer (Full-time)}{May 2019 - Sep 2019}
+%     \resumeItemListStart
+%         \resumeItem{Discussion Forum Upgrades}
+%           {Refactor forum for performance to handle large databases.}
+%           \resumeItem{REST API for Discussion Forum}
+%           {Symphony \& Twig based Forum parts converted to API-first interface.}
+%           \resumeItem{Ratchet PHP WebSocket}{Implemented a WebSocket for low-latency real time exchange of posts and thread updates.}
+%       \resumeItemListEnd
+% \vspace{-5pt}
+%     \resumeSubheading
+% 		{DataCamp Inc.}{Remote}
+% 		{Instructor (Part-time, Contractual)}{Dec 2018 -  Present}
+% 		\resumeItemListStart
+%         \resumeItem{Project Course - Find Movie Similarity from Plot Summaries}
+%           {Created project based course using Unsupervised learning and natural language processing.}
+%         \resumeItem{Tutorial - Introduction to Reinforcement Learning}
+%           {Created tutorial for Q-learning RL algorithm and  concepts.}
+%         \resumeItem{Impact}{Course has been taken by 250+ students so far with 4.65 average rating.}
+% 		\resumeItemListEnd
+%
+% \resumeSubHeadingListEnd
 
-\begin{resume}
+%-----------PROJECTS-----------------
+\vspace{-5pt}
+\section{Projects}
+\resumeSubHeadingListStart
+\resumeSubItem{Vison - multimedia search engine (NLP, Search Engine, Web Crawlers, Multimedia Processing)}{(Work in progress) Research oriented, open source, search engine for bringing reverse multimedia search to small \& mid scale enterprises. Tech: Python, NodeJS, Intel OpenVino Toolkit, Selenium, TensorFlow (October '18)}
+\vspace{2pt}
+\resumeSubItem{Reinforcement Learning based Traffic Control System (Reinforcement Learning, Computer Vision)}{AI model to resolve city traffic around 50\%
+faster. Tech: Python, Alibaba Cloud, Raspberry Pi, Arduino, SUMO \& OpenCV. (August '18)}
+\vspace{2pt}
+\resumeSubItem{Panorama from Satellite Imagery using Distributed Computing (Distributed Computing, Image Processing)}{Images clicked using drones, provided by ISRO were stitched together using distributed public compute nodes, effectively bringing down processing time exponentially. Tech: PHP, C++, Java, Python (March '18)}
+\vspace{2pt}
+\resumeSubItem{Drag-n-drop machine learning learning environment (Web Development, Machine Learning)}{Scratch like tool for implementing machine learning pipelines along with built in tutorial for each concept. Tech: Python, JavaScript (September '18)}
+\vspace{2pt}
+\resumeSubItem{Search Engine and Social Network(Web Development, Web Crawler, Search)}{Created from scratch a social network and a search engine based on the idea of integrating Facebook and Google. The launched website was among top 1000 websites in India during 2012-2013. Tech: PHP, MySQL, HTML, CSS, WebSockets, JavaScript, RSS, XML ( May '12)}
+\resumeSubHeadingListEnd
+\vspace{-5pt}
+\section{Publications}
+\resumeSubHeadingListStart
+\resumeSubItem{Book: Deep Learning on Web (Web Development, Deep Learning)}{Work in Progress book to be published by Packt Publishing in late 2019. Tech: Django, Python, AWS, GCP, Azure (November '18)}
+\vspace{2pt}
+\resumeSubItem{Book: Deep Learning on Mobile Devices (Flutter App Development, Deep Learning)}{Work in Progress book to be published by Packt Publishing in late 2019. Tech: Flutter, Android, Firebase, TensorFlow, Python, Dart (December '18)}
+\resumeSubHeadingListEnd
+\vspace{-5pt}
+%-----------Awards-----------------
+\section{Honors and Awards}
+\begin{description}[font=$\bullet$]
+\item {Awarded title of Intel Software Innovator - May, 2019}
+\vspace{-5pt}
+\item {Second Runner's Up at TCS EngiNx Engineering Project Innovation Content - September, 2018 }
+\vspace{-5pt}
+\item {Runner's Up at Facebook Developers Circle Hackathon - August, 2017}
 
+\end{description}
 
-\section{ABOUT}
-This is a paragraph about me.
+\vspace{-5pt}
+\section{Volunteer Experience}
+%   \resumeSubHeadingListStart
+% 	\resumeSubheading
+%     {Community Lead at Developer Student Clubs NSEC}{Kolkata, India}
+%     {Conducted online and offline technical \& soft-skills training impacting over 3000 students.}{Jan 2019 - Present}
+% \vspace{5pt}
+%     % \vspace{10pt}\textbf{\large{Community Experience}}
+%     \resumeSubheading
+%     {Event Organizer at Google Developers Group Kolkata}{Kolkata, India}
+%     {Organized events, conducted workshops and delivered workshops reaching over 7000 developers.}{Jan 2018 - Present}
+%
+% \resumeSubHeadingListEnd
 
-%-------------------------------------------------------------------------------
-%	COMPUTER SKILLS SECTION
-%-------------------------------------------------------------------------------
-\section{SKILLS}
-
-\textbf{Web} JS/HTML/CSS, React/Redux, Node.js, Golang, Python\newline
-\textbf{Devops} Unix/Linux, Docker/containers, serverless solutions, CI/CD\newline
-\textbf{Miscellaneous} Git, SQL/NoSQL
-%-------------------------------------------------------------------------------
-
-%-------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%-------------------------------------------------------------------------------
-\section{EDUCATION}
-\textbf{DevMountain} 2020 (honors graduate)\newline
-{\sl Web Development}: React, Node.js, Express, SQL, Javascript, HTML, CSS\newline
-\textbf{Occidental College} 2019\newline
-{\sl Bachelor of Arts}: Physics major and Mathematics minor\newline
-{\sl Relevant Coursework}: Differential Equations (PDEs and ODEs), Statistical Mechanics\newline
-{\sl Extra Curricular}: 4 year starter, 2 year leader for Occidental College NCAA baseball team
-%-------------------------------------------------------------------------------
-
-
-%-------------------------------------------------------------------------------
-%	EXPERIENCE SECTION
-%-------------------------------------------------------------------------------
-% Modify the format of each position
-\begin{format}
-\title{l}\employer{r}\\
-\dates{l}\location{r}\\
-\body\\
-\end{format}
-%-------------------------------------------------------------------------------
-
-\section{EXPERIENCE}
-
-\employer{Self-Employed}
-\location{Remote}
-\dates{May 2020 to present}
-\title{\textbf{Freelance Web Developer}}
-\begin{position}
-	Created from scratch an admin portal solution for the Arts Reach company\\(https://artsreach.com)
-	\begin{itemize}
-		\item Wrote business logic to log appointments made by clients
-		\item Created custom solutions to manage parters of Arts Reach for users of the admin dashboard
-	\end{itemize}
-\end{position}
-
-\employer{DevMountain}
-\location{Phoenix, AZ}
-\dates{January 2020 to April 2020}
-\title{\textbf{Fullstack Student Developer}}
-\begin{position}
-	Developed two fullstack projects while working in a collaborative, learning environment.
-	\begin{itemize}
-		\item Project \#1: Fullstack site that tracks moods of the user is hosted at\\https://dailymoodtracker.com (https://github.com/jmbaur/mood-tracker)
-		\item Project \#2: Fullstack site for collaborative drawing is hosted at\\http://colorizer.io (https://github.com/jmbaur/colorizer)
-	\end{itemize}
-\end{position}
-
-\employer{CSAA}
-\location{Glendale, AZ}
-\dates{September 2019 to January 2020}
-\title{\textbf{IT Technician} Contractor}
-\begin{position}
-	Provided support for employees with desktop, networking, and other hardware/software related problems
-	\begin{itemize}
-		\item Used Citrix Xenserver, Active Directory, and LDAP to diagnose employee concerns
-		\item Collaborated with other teams to write shell scripts to solve problems concerning employee security
-	\end{itemize}
-\end{position}
-
-\employer{Abbott Laboratories}
-\location{Sylmar, CA}
-\dates{June 2018 to December 2018}
-\title{\textbf{Data Analyst} Intern}
-\begin{position}
-	Provided valuable insights to the quality engineering team through the use of web scraping tools and data analysis.
-	\begin{itemize}
-		\item Processed data for malfunctioned products using Excel and VBA macros
-		\item Created a web scraping tool in Python using the BeautifulSoup library
-		\item Automated the web scraping tool using shell scripts and cron jobs in order to scrape, process, and display relevant data
-	\end{itemize}
-\end{position}
-
-\employer{CollegeSpring}
-\location{Los Angeles, CA}
-\dates{January 2016 to January 2017}
-\title{\textbf{Student Mentor \& Campus Recruiter}}
-\begin{position}
-	Mentored and managed a group of 6 high school students for the SAT and college preparation material on a weekly basis. Recruited future mentors from my college by hosting meetups and participating in club recruitment.
-\end{position}
-
-%-------------------------------------------------------------------------------
-
-%-------------------------------------------------------------------------------
-%	PROJECTS SECTION
-%-------------------------------------------------------------------------------
-\section{PROJECTS}
-\par
-\textbf{Mood Tracker Web App}:
-https://dailymoodtracker.com
-%-------------------------------------------------------------------------------
-
-%-------------------------------------------------------------------------------
-%	References
-%-------------------------------------------------------------------------------
-\section{REFERENCES}
-Adam Kent, DevMountain Instructor, adamkentdev@gmail.com\\
-Luke Wetmore, Occidental College Baseball Head Coach, (323) 259 2683\\
-Aaron Milam, Abbott Laboratories Senior Engineer, (626) 695 6903
-%-------------------------------------------------------------------------------
-\end{resume}
 \end{document}

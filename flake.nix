@@ -10,6 +10,7 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
+        texlive = pkgs.texlive.combined.scheme-full;
       in
       rec {
         packages.resume = pkgs.stdenvNoCC.mkDerivation {
@@ -17,7 +18,7 @@
           version = "2022-01-22";
           src = builtins.path { path = ./.; };
           buildPhase = ''
-            ${pkgs.texlive.combined.scheme-medium}/bin/latexmk -pdf resume.tex
+            ${texlive}/bin/latexmk -pdf resume.tex
           '';
           installPhase = ''
             cp resume.pdf $out
@@ -25,13 +26,11 @@
         };
         defaultPackage = packages.resume;
         devShell = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            entr
-            fd
-            texlive.combined.scheme-medium
+          buildInputs = [
+            texlive
             (pkgs.writeShellScriptBin "run" ''
               ${pkgs.fd}/bin/fd -e tex | ${pkgs.entr}/bin/entr -c \
-                ${pkgs.texlive.combined.scheme-medium}/bin/latexmk -pdf resume.tex
+                ${texlive}/bin/latexmk -pdf resume.tex
             '')
           ];
         };

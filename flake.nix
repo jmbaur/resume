@@ -1,38 +1,44 @@
 {
   description = "resume";
-
-  inputs = {
-    nixpkgs.url = "nixpkgs/nixos-21.11";
-    flake-utils.url = "github:numtide/flake-utils";
-  };
-
-  outputs = { self, nixpkgs, flake-utils }@inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-        texlive = pkgs.texlive.combined.scheme-full;
-      in
-      rec {
-        packages.resume = pkgs.stdenvNoCC.mkDerivation {
-          pname = "resume";
-          version = "2022-01-22";
-          src = builtins.path { path = ./.; };
-          buildPhase = ''
-            ${texlive}/bin/latexmk -pdf resume.tex
-          '';
-          installPhase = ''
-            cp resume.pdf $out
-          '';
-        };
-        defaultPackage = packages.resume;
-        devShell = pkgs.mkShell {
-          buildInputs = [
-            texlive
-            (pkgs.writeShellScriptBin "run" ''
-              ${pkgs.fd}/bin/fd -e tex | ${pkgs.entr}/bin/entr -c \
-                ${texlive}/bin/latexmk -pdf resume.tex
-            '')
+  inputs.nixpkgs.url = "nixpkgs/nixos-unstable";
+  outputs = inputs:
+    let
+      forEachSystem = f: inputs.nixpkgs.lib.genAttrs [ "x86_64-linux" "aarch64-linux" ] (system: f {
+        inherit system;
+        pkgs = import inputs.nixpkgs {
+          inherit system;
+          overlays = [
+            (final: prev: {
+              tex = prev.texlive.combine {
+                inherit (prev.texlive) scheme-basic latexmk
+                  preprint marvosym titlesec/*verbatim*/ enumitem fancyhdr
+                  ;
+              };
+            })
           ];
         };
       });
+    in
+    {
+      packages = forEachSystem ({ pkgs, ... }: {
+        default = pkgs.runCommand "resume-2022-01-22"
+          { src = ./.; } ''
+          mkdir -p $out
+          ${pkgs.tex}/bin/latexmk -pdf $src/resume.tex
+          cp resume.pdf $out
+        '';
+      });
+      devShells = forEachSystem
+        ({ pkgs, ... }: {
+          default = pkgs.mkShell {
+            buildInputs = [
+              pkgs.tex
+              (pkgs.writeShellScriptBin "run" ''
+                ${pkgs.fd}/bin/fd -e tex | ${pkgs.entr}/bin/entr -c \
+                  ${pkgs.tex}/bin/latexmk -pdf resume.tex
+              '')
+            ];
+          };
+        });
+    };
 }

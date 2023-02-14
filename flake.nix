@@ -28,17 +28,14 @@
           cp resume.pdf $out
         '';
       });
-      devShells = forEachSystem
-        ({ pkgs, ... }: {
-          default = pkgs.mkShell {
-            buildInputs = [
-              pkgs.tex
-              (pkgs.writeShellScriptBin "run" ''
-                ${pkgs.fd}/bin/fd -e tex | ${pkgs.entr}/bin/entr -c \
-                  ${pkgs.tex}/bin/latexmk -pdf resume.tex
-              '')
-            ];
-          };
-        });
+      apps = forEachSystem ({ pkgs, ... }: {
+        default = {
+          type = "app";
+          program = toString (pkgs.writeShellScript "run" ''
+            ${pkgs.fd}/bin/fd -e tex | ${pkgs.entr}/bin/entr -c \
+              ${pkgs.tex}/bin/latexmk -pdf resume.tex
+          '');
+        };
+      });
     };
 }

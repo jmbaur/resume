@@ -38,23 +38,13 @@
 \setlength{\tabcolsep}{0in}
 
 % Sections formatting
-\titleformat{\section}{
-	\vspace{-10pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
+\titleformat{\section}{\vspace{-10pt}\scshape\raggedright\large}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
 
 %-------------------------
 % Custom commands
-\newcommand{\resumeItem}[2]{
-	\item\small{
-		\textbf{#1}{: #2 \vspace{-2pt}}
-	}
-}
+\newcommand{\resumeItem}[2]{\item\small{\textbf{#1}{: #2 \vspace{-2pt}}}}
 
-\newcommand{\resumeItemWithoutTitle}[1]{
-	\item\small{
-		{\vspace{-2pt}}
-	}
-}
+\newcommand{\resumeItemWithoutTitle}[1]{\item\small{{\vspace{-2pt}}}}
 
 \newcommand{\resumeSubheading}[4]{
 	\vspace{-1pt}\item
@@ -70,9 +60,9 @@
 \renewcommand{\labelitemii}{$\circ$}
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
-		\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
-		\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-----------------------------
 %%%%%%  CV STARTS HERE  %%%%%%
@@ -81,9 +71,8 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-	\textbf{{\LARGE Jared Baur}} & Email: \href{mailto:jaredbaur@fastmail.com}{jaredbaur@fastmail.com}\\
-	\href{https://jmbaur.com}{Personal: https://jmbaur.com}\\
-	\href{https://github.com/jmbaur}{GitHub: https://github.com/jmbaur} \\
+\textbf{{\LARGE Jared Baur}} & Email: \href{mailto:jaredbaur@fastmail.com}{jaredbaur@fastmail.com}\\
+\href{https://github.com/jmbaur}{GitHub: https://github.com/jmbaur}\\
 \end{tabular*}
 
 %-----------EDUCATION-----------------
@@ -99,15 +88,14 @@
 			in preparation for college applications and SAT tests.}}}
 \resumeSubheading
 {DevMountain}{Tempe, AZ}
-{Software Development Bootcamp Honors Graduate}{February 2020 - May 2020}
+{Software Development Bootcamp Honors Graduate}{January 2020 - May 2020}
 \resumeSubHeadingListEnd
 
 \vspace{-5pt}
 \section{Skills Summary}
 \resumeSubHeadingListStart
-\resumeSubItem{Languages}{~~~~~~Go, Rust, Python, Nix, JavaScript, SQL, Bash}
-% \resumeSubItem{Frameworks}{~~~~Scikit, NLTK, SpaCy, TensorFlow, Keras, Django, Flask, NodeJS, LAMP}
-\resumeSubItem{Tools}{~~~~~~~~~~~~~~Docker/Podman/Nspawn, Nix, Git, PostgreSQL, MySQL, SQLite, SSH}
+\resumeSubItem{Languages}{~~~~~~Rust, Go, C, Zig, Python, Nix, SQL, Bash}
+\resumeSubItem{Tools}{~~~~~~~~~~~~~~Nix, Docker/Podman/Nspawn, Git, PostgreSQL, MySQL, SQLite, SSH}
 \resumeSubItem{Platforms}{~~~~~~~Linux, NixOS, Web, AWS}
 % \resumeSubItem{Soft Skills}{~~~~~~~Leadership, Event Management, Writing, Public Speaking, Time Management}
 
@@ -116,57 +104,81 @@
 \section{Experience}
 \resumeSubHeadingListStart
 
-\resumeSubheading{Adobe, Inc.}{Remote}
-{Software Engineer (full-time)}{May 2022 - present}
+\resumeSubheading{Anduril Industries}{Costa Mesa, CA}
+{Software Engineer (full-time)}{March 2023 - April 2025}
 \resumeItemListStart
-\resumeItem{Site Reliability}
-{Currently working on a project that is responsible for the manual and
-	automatic remediation of analytics services within the company.}
+\resumeItem{NixOS on Embedded}{Provided superior platform support for NixOS on
+embedded platforms such as NVIDIA Jetson, NXP IMX8, and Xilinx Zynqmp/Versal.
+This involved bootloader (U-Boot, EDK2) and Linux kernel bringup on custom
+carrier boards and peripherals used by various products.}
+\resumeItem{Security}{Implemented custom program for writing OTP fuses on
+Xilinx Zynqmp/Versal boards. This involved writing a baremetal program that
+would accept a payload of data to write to the fuses, validating the data for
+the current board being ran on, then performing the fusing. This was crucial
+for implementing verified boot on Xilinx platforms.}
+\resumeItem{Testing}{Maintained and improved upon a custom hardware testing
+platform for 50+ individual devices. This involved testing various aspects of a
+device's lifecycle, such as firmware updates, NixOS installations, and tests
+that perform various platform and hardware specific functions.}
+\resumeItem{Manufacturing}{Created and maintained NixOS modules for the purpose
+of manufacturing new NixOS devices. Aided in rolling this out to various teams
+and products on the manufacturing floor. This included bootstrapping devices
+with platform firmware, fusing devices for the purpose of verified boot, and
+performing NixOS installations over the network.}
+\resumeItemListEnd
+
+\resumeSubheading{Adobe, Inc.}{Remote}
+{Software Engineer (full-time)}{May 2022 - March 2023}
+\resumeItemListStart
+\resumeItem{Site Reliability}{Implemented new features for and maintained a
+service aimed at performing automatic remediation of issues encountered for
+analytics services within the company. This service was capable of monitoring
+hundreds of other services and made the lives of on-call technicians easier by
+performing many tasks for them. New features implemented included adding
+internal team monitoring, adding integration for new analytics services, and
+creating common abstractions around existing services.}
 \resumeItemListEnd
 
 \resumeSubheading{Prenda, Inc.}{Remote}
 {Software Engineer (full-time)}{August 2020 - April 2022}
 \resumeItemListStart
-\resumeItem{Authn/Authz}
-{Implemented an authorization server that enabled other services to create a
-	root of trust for their consumers. The server used JWT/JWKs as an interface to
-	other services (implementing RFCs 7517 \& 7519), which allowed services to
-	ensure authentication and gather authorization details of a specific
-	principal.}
-\resumeItem{Infrastructure}
-{Utilized the AWS CDK tool to create a library developer teams could consume to
-	create their desired infrastructure. This included CI/CD pipelines, integration
-	of custom Cloudformation resources to manipulate infrastructure in Cloudflare,
-	as well as better defaults for resources that do networking to enable a
-	dual-stack setup. The usage of the library led to an increase in holistic
-	quality of infrastructure and enabled product teams to meet deadlines with an
-	increase in iteration time and developer productivity.}
+\resumeItem{Authn/Authz}{Implemented an authorization server that enabled other
+services to create a root of trust for their consumers. The server used
+JWT/JWKs as an interface to other services (implementing RFCs 7517 \& 7519),
+which allowed services to ensure authentication and gather authorization
+details of a specific principal.}
+\resumeItem{Infrastructure}{Utilized the AWS CDK tool to create a library
+developer teams could consume to create their desired infrastructure. This
+included CI/CD pipelines, integration of custom Cloudformation resources to
+manipulate infrastructure in Cloudflare, as well as better defaults for
+resources that do networking to enable a dual-stack setup. The usage of the
+library led to an increase in holistic quality of infrastructure and enabled
+product teams to meet deadlines with an increase in iteration time and
+developer productivity.}
 \resumeItemListEnd
 
 \resumeSubheading
 {CSAA}{Glendale, AZ}
 {IT Technician (full-time)}{September 2019 - January 2020}
 \resumeItemListStart
-\resumeItem{Automation}
-{Wrote shell scripts to automate employee provisioning steps, taking a step
-	that took hours manually down to minutes}
-\resumeItem{Virtualization}
-{Worked with virtualization solutions to aid in software development testing
-	environments.}
+\resumeItem{Automation}{Wrote shell scripts to automate employee provisioning
+steps, taking a step that took hours manually down to minutes}
+\resumeItem{Virtualization}{Worked with virtualization solutions to aid in
+software development testing environments.}
 \resumeItemListEnd
 
 \resumeSubheading
 {Abbott Laboratories}{Sylmar, CA}
 {Data Analyst (full-time intern)}{June 2018 - December 2018}
 \resumeItemListStart
-\resumeItem{Public Image Project}{Led a new project to raise awareness of company public
-	image through data analysis and automation. Python was utilized to create a
-	tool that could scrape various social media sites for posts about the company,
-	perform sentiment analysis of said posts, and then automate the pipeline so
-	that relevant teams were always kept up to date on the latest posts. This led
-	to increased focus and prioritization on happy and unhappy customers alike,
-	allowing for better planning of customer interaction (conventions, meetings,
-	etc).}
+\resumeItem{Public Image Project}{Led a new project to raise awareness of
+company public image through data analysis and automation. Python was utilized
+to create a tool that could scrape various social media sites for posts about
+the company, perform sentiment analysis of said posts, and then automate the
+pipeline so that relevant teams were always kept up to date on the latest
+posts. This led to increased focus and prioritization on happy and unhappy
+customers alike, allowing for better planning of customer interaction
+(conventions, meetings, etc).}
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd

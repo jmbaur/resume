@@ -1,7 +1,7 @@
 .PHONY: clean
 
 resume.pdf: resume.tex
-	latexmk -pdf $<
+	lualatex --interaction=nonstopmode $<
 
 clean:
-	rm -f *.aux *.fls *.out *.fdb_latexmk *.log *.pdf
+	rm -f *.aux *.log *.out *.pdf

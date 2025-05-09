@@ -11,7 +11,8 @@
         }:
         stdenvNoCC.mkDerivation {
           pname = "jmbaur-resume";
-          version = "2025-04-30";
+          version = "2025-05-08";
+
           src = lib.fileset.toSource {
             root = ./.;
             fileset = lib.fileset.unions [
@@ -19,11 +20,11 @@
               ./resume.tex
             ];
           };
+
           nativeBuildInputs = [
             (texlive.combine {
               inherit (texlive)
                 scheme-basic
-                latexmk
                 preprint
                 marvosym
                 titlesec # verbatim
@@ -32,6 +33,11 @@
                 ;
             })
           ];
+
+          postConfigure = ''
+            export TEXMFVAR=$TEMPDIR
+          '';
+
           installPhase = ''
             runHook preInstall
             install -Dm0644 resume.pdf $out/resume.pdf

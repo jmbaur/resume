@@ -106,7 +106,11 @@ for implementing verified boot on Xilinx platforms.}
 \resumeItem{Testing}{Maintained and improved upon a custom hardware testing
 platform for 50+ individual devices. This involved testing various aspects of a
 device's lifecycle, such as firmware updates, NixOS installations, and tests
-that perform various platform and hardware specific functions.}
+that perform various platform and hardware specific functions. Setting up the
+testing platform involved creating networking infrastructure for netbooting all
+devices involved, wiring up custom HATs for manipulating power and boot states
+of each DUT, and creating abstractions that allowed for quickly writing new
+tests.}
 \resumeItem{Manufacturing}{Created and maintained NixOS modules for the purpose
 of manufacturing new NixOS devices. Aided in rolling this out to various teams
 and products on the manufacturing floor. This included bootstrapping devices

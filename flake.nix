@@ -5,9 +5,9 @@
     packages = inputs.nixpkgs.lib.genAttrs [ "x86_64-linux" "aarch64-linux" ] (system: {
       default = (import inputs.nixpkgs { inherit system; }).callPackage (
         {
-          stdenvNoCC,
-          texlive,
+          buildPackages,
           lib,
+          stdenvNoCC,
         }:
         stdenvNoCC.mkDerivation {
           pname = "jmbaur-resume";
@@ -22,26 +22,20 @@
           };
 
           nativeBuildInputs = [
-            (texlive.combine {
-              inherit (texlive)
+            (buildPackages.texlive.withPackages (
+              ps: with ps; [
                 scheme-basic
                 preprint
                 marvosym
                 titlesec # verbatim
                 enumitem
                 fancyhdr
-                ;
-            })
+              ]
+            ))
           ];
 
           postConfigure = ''
             export TEXMFVAR=$TEMPDIR
-          '';
-
-          installPhase = ''
-            runHook preInstall
-            install -Dm0644 resume.pdf $out/resume.pdf
-            runHook postInstall
           '';
         }
       ) { };

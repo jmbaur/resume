@@ -1,6 +1,8 @@
 .PHONY: install clean
 
-resume.pdf: resume.tex
+all: resume.pdf
+
+%.pdf: %.tex
 	lualatex --interaction=nonstopmode $<
 
 install: resume.pdf
